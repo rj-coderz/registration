@@ -1,0 +1,2388 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)file:///A:/jee%20books/Registration%20Form.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" src="./Registration Form_files/___vscode_livepreview_injected_script"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary: #5b8def;
+    --secondary: #7562e8;
+    --text: #1e2a44;
+    --muted: #7a879e;
+    --border: #dce4f0;
+    --field-bg: #fbfcff;
+    --success: #29b760;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, "Segoe UI", sans-serif;
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at 5% 10%,
+            rgba(112, 174, 255, 0.22),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 95% 90%,
+            rgba(150, 117, 255, 0.18),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #f7fbff 0%,
+            #f3f7ff 50%,
+            #faf7ff 100%
+        );
+
+    overflow-x: hidden;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.bg-circle {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.bg-circle.one {
+    width: 230px;
+    height: 230px;
+    top: -90px;
+    left: -80px;
+    background: rgba(77, 145, 255, 0.08);
+}
+
+.bg-circle.two {
+    width: 300px;
+    height: 300px;
+    right: -110px;
+    bottom: -110px;
+    background: rgba(117, 89, 232, 0.08);
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+}
+
+.card {
+    width: 100%;
+    max-width: 760px;
+
+    padding: 42px;
+
+    background: rgba(255,255,255,.95);
+
+    border: 1px solid rgba(255,255,255,.95);
+    border-radius: 28px;
+
+    box-shadow:
+        0 25px 70px rgba(48,77,123,.12),
+        0 5px 20px rgba(48,77,123,.05);
+
+    animation: cardIn .7s ease both;
+}
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    text-align: center;
+    margin-bottom: 34px;
+}
+
+.header-icon {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #edf5ff,
+            #ffffff
+        );
+
+    color: var(--primary);
+
+    font-size: 28px;
+
+    box-shadow:
+        0 10px 25px rgba(69,119,219,.12);
+}
+
+.header h1 {
+    font-size: clamp(28px,5vw,40px);
+    font-weight: 750;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--muted);
+}
+
+.header-line {
+    width: 60px;
+    height: 4px;
+
+    margin: 18px auto 0;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--secondary)
+        );
+}
+
+/* =========================
+   FORM
+========================= */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 20px;
+}
+
+.field.full {
+    grid-column: 1 / -1;
+}
+
+.main-label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #293752;
+
+    font-size: 14px;
+    font-weight: 650;
+}
+
+.required {
+    color: #ed5868;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.input-wrap {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+
+    left: 15px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #8795ad;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+input,
+select {
+    width: 100%;
+    height: 53px;
+
+    border: 1px solid var(--border);
+    border-radius: 13px;
+
+    background: var(--field-bg);
+
+    color: #26344f;
+
+    outline: none;
+
+    padding: 0 15px 0 45px;
+
+    font-size: 14px;
+
+    transition:
+        border-color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease,
+        transform .2s ease;
+}
+
+input::placeholder {
+    color: #9aa7bb;
+}
+
+input:hover,
+select:hover {
+    border-color: #bdc9dc;
+}
+
+input:focus,
+select:focus {
+    background: #fff;
+
+    border-color: #6a8df1;
+
+    box-shadow:
+        0 0 0 4px rgba(91,141,239,.10);
+
+    transform: translateY(-1px);
+}
+
+/* =========================
+   GENDER
+========================= */
+
+.gender-options {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 9px;
+}
+
+.gender-option {
+    position: relative;
+}
+
+.gender-option input {
+    position: absolute;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+.gender-option label {
+    position: relative;
+
+    width: 100%;
+    min-height: 53px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0 8px;
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    background: var(--field-bg);
+
+    color: #63718a;
+
+    font-size: 13px;
+    font-weight: 650;
+
+    cursor: pointer;
+
+    transition:
+        background .25s ease,
+        border-color .25s ease,
+        color .25s ease,
+        box-shadow .25s ease,
+        transform .2s ease;
+}
+
+.gender-option label:hover {
+    transform: translateY(-2px);
+
+    border-color: #a9bbee;
+
+    background: #f5f8ff;
+}
+
+.gender-option input:checked + label {
+    color: #fff;
+
+    border-color: transparent;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4e92ff,
+            #7159e8
+        );
+
+    box-shadow:
+        0 10px 23px rgba(87,117,228,.22);
+
+    transform: translateY(-2px);
+}
+
+.gender-option input:checked + label::after {
+    content: "✓";
+
+    position: absolute;
+
+    right: 7px;
+    top: 6px;
+
+    width: 18px;
+    height: 18px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.25);
+
+    font-size: 10px;
+    color: #fff;
+
+    animation: checkIn .25s ease;
+}
+
+@keyframes checkIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* =========================
+   SELECT
+========================= */
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+
+    cursor: pointer;
+
+    padding-right: 42px;
+}
+
+.select-wrap::after {
+    content: "⌄";
+
+    position: absolute;
+
+    right: 15px;
+    top: 50%;
+
+    transform: translateY(-55%);
+
+    color: #8491a8;
+
+    pointer-events: none;
+}
+
+/* =========================
+   CITY AUTOCOMPLETE
+========================= */
+
+.city-box {
+    position: relative;
+}
+
+.city-suggestions {
+    position: absolute;
+
+    top: calc(100% + 7px);
+    left: 0;
+    right: 0;
+
+    max-height: 250px;
+
+    overflow-y: auto;
+
+    background: rgba(255,255,255,.99);
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 18px 35px rgba(40,65,100,.15);
+
+    display: none;
+
+    z-index: 1000;
+}
+
+.city-suggestions.show {
+    display: block;
+}
+
+.city-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 13px 15px;
+
+    border-bottom: 1px solid #eef2f7;
+
+    color: #34425f;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease;
+}
+
+.city-item:last-child {
+    border-bottom: none;
+}
+
+.city-item:hover {
+    background: #eef5ff;
+    color: #3976ed;
+}
+
+.city-name strong {
+    color: #3976ed;
+}
+
+.city-badge {
+    margin-left: 10px;
+
+    padding: 3px 7px;
+
+    border-radius: 20px;
+
+    background: #f0f5ff;
+
+    color: #7190d4;
+
+    font-size: 10px;
+}
+
+/* =========================
+   ERRORS
+========================= */
+
+.error {
+    display: none;
+
+    margin-top: 6px;
+
+    color: #da5261;
+
+    font-size: 12px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.button-area {
+    margin-top: 28px;
+}
+
+.register-btn {
+    width: 100%;
+    height: 57px;
+
+    border: none;
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4d91ff,
+            #6959eb
+        );
+
+    color: #fff;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 25px rgba(79,112,231,.22);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        opacity .25s ease;
+}
+
+.register-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 16px 32px rgba(79,112,231,.28);
+}
+
+.register-btn:active {
+    transform: translateY(0);
+}
+
+.register-btn:disabled {
+    opacity: .65;
+    cursor: not-allowed;
+}
+
+/* =========================
+   NOTE
+========================= */
+
+.note {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 17px;
+
+    color: #8290a7;
+
+    font-size: 12px;
+}
+
+/* =========================
+   SUCCESS OVERLAY
+========================= */
+
+.overlay {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(26,43,72,.32);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .35s ease,
+        visibility .35s ease;
+
+    z-index: 9999;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* =========================
+   SUCCESS POPUP
+========================= */
+
+.popup {
+    width: min(100%,470px);
+
+    padding: 38px 28px 31px;
+
+    text-align: center;
+
+    background: #fff;
+
+    border-radius: 27px;
+
+    box-shadow:
+        0 30px 90px rgba(24,49,91,.25);
+
+    transform:
+        translateY(30px)
+        scale(.90);
+
+    transition:
+        transform .45s cubic-bezier(
+            .16,
+            1,
+            .3,
+            1
+        );
+}
+
+.overlay.show .popup {
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+.success-icon {
+    width: 94px;
+    height: 94px;
+
+    margin: 0 auto 21px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #4ed07a,
+            #27ad58
+        );
+
+    color: #fff;
+
+    font-size: 45px;
+
+    box-shadow:
+        0 0 0 13px rgba(75,201,106,.10),
+        0 16px 37px rgba(48,176,87,.24);
+
+    animation:
+        successIcon .7s ease;
+}
+
+@keyframes successIcon {
+    0% {
+        transform: scale(.25) rotate(-20deg);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.08) rotate(3deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}
+
+.popup h2 {
+    margin-bottom: 10px;
+
+    color: #218d49;
+
+    font-size: clamp(25px,6vw,32px);
+
+    letter-spacing: -.5px;
+}
+
+.popup p {
+    max-width: 370px;
+
+    margin: 0 auto;
+
+    color: #6d7b93;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+.great-btn {
+    height: 48px;
+
+    margin-top: 25px;
+
+    padding: 0 29px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #35c98b,
+            #43aaf5
+        );
+
+    color: #fff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(60,182,144,.19);
+
+    transition: .2s ease;
+}
+
+.great-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+.confetti-piece {
+    position: absolute;
+
+    width: 8px;
+    height: 13px;
+
+    border-radius: 2px;
+
+    opacity: 0;
+
+    animation:
+        confettiFall 1.6s ease-out forwards;
+}
+
+@keyframes confettiFall {
+
+    0% {
+        opacity: 1;
+
+        transform:
+            translateY(-40px)
+            rotate(0deg);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translateY(320px)
+            rotate(500deg);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width:700px) {
+
+    .page {
+        padding: 15px 10px;
+        align-items: flex-start;
+    }
+
+    .card {
+        margin-top: 5px;
+        padding: 27px 16px;
+        border-radius: 22px;
+    }
+
+    .header {
+        margin-bottom: 27px;
+    }
+
+    .header-icon {
+        width: 62px;
+        height: 62px;
+        font-size: 25px;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .header p {
+        font-size: 13px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .field.full {
+        grid-column: auto;
+    }
+
+    input,
+    select {
+        height: 52px;
+    }
+
+    .gender-options {
+        grid-template-columns: repeat(3,1fr);
+        gap: 6px;
+    }
+
+    .gender-option label {
+        min-height: 52px;
+        padding: 0 3px;
+        font-size: 12px;
+    }
+
+    .city-suggestions {
+        max-height: 210px;
+    }
+
+    .city-item {
+        padding: 14px 15px;
+        font-size: 13px;
+    }
+
+    .city-badge {
+        display: none;
+    }
+
+    .register-btn {
+        height: 55px;
+    }
+
+    .popup {
+        padding: 32px 20px 28px;
+        border-radius: 23px;
+    }
+
+    .success-icon {
+        width: 83px;
+        height: 83px;
+        font-size: 38px;
+    }
+}
+
+@media (max-width:380px) {
+
+    .card {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+    .header h1 {
+        font-size: 25px;
+    }
+
+    .gender-option label {
+        font-size: 11px;
+    }
+
+    input,
+    select {
+        font-size: 13px;
+    }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="bg-circle one"></div>
+<div class="bg-circle two"></div>
+
+<div class="page">
+
+<div class="card">
+
+
+<!-- HEADER -->
+
+<div class="header">
+
+    <div class="header-icon">
+        👤+
+    </div>
+
+    <h1>
+        Create Your Account
+    </h1>
+
+    <p>
+        Fill in your details to complete the registration
+    </p>
+
+    <div class="header-line"></div>
+
+</div>
+
+
+<!-- FORM -->
+
+<form id="registrationForm">
+
+    <div class="form-grid">
+
+
+        <!-- NAME -->
+
+        <div class="field full">
+
+            <label class="main-label" for="name">
+                Full Name
+                <span class="required">*</span>
+            </label>
+
+            <div class="input-wrap">
+
+                <span class="input-icon">
+                    ♙
+                </span>
+
+                <input id="name" type="text" placeholder="Enter your full name" autocomplete="name" required="" fdprocessedid="9gbkv">
+
+            </div>
+
+            <div class="error" id="nameError" style="display: none;">
+                Please enter your full name.
+            </div>
+
+        </div>
+
+
+        <!-- GENDER -->
+
+        <div class="field">
+
+            <label class="main-label">
+
+                Gender
+                <span class="required">*</span>
+
+            </label>
+
+            <div class="gender-options">
+
+                <div class="gender-option">
+
+                    <input id="male" type="radio" name="gender" value="Male">
+
+                    <label for="male">
+                        ♂ Male
+                    </label>
+
+                </div>
+
+
+                <div class="gender-option">
+
+                    <input id="female" type="radio" name="gender" value="Female">
+
+                    <label for="female">
+                        ♀ Female
+                    </label>
+
+                </div>
+
+
+                <div class="gender-option">
+
+                    <input id="other" type="radio" name="gender" value="Other">
+
+                    <label for="other">
+                        ◉ Other
+                    </label>
+
+                </div>
+
+            </div>
+
+            <div class="error" id="genderError" style="display: none;">
+                Please select your gender.
+            </div>
+
+        </div>
+
+
+        <!-- AGE -->
+
+        <div class="field">
+
+            <label class="main-label" for="age">
+                Age
+                <span class="required">*</span>
+            </label>
+
+            <div class="input-wrap">
+
+                <span class="input-icon">
+                    ▣
+                </span>
+
+                <input id="age" type="number" min="1" max="120" placeholder="Enter your age" required="" fdprocessedid="rk8kh">
+
+            </div>
+
+            <div class="error" id="ageError" style="display: none;">
+                Please enter a valid age.
+            </div>
+
+        </div>
+
+
+        <!-- MOBILE -->
+
+        <div class="field">
+
+            <label class="main-label" for="mobile">
+                Mobile Number
+                <span class="required">*</span>
+            </label>
+
+            <div class="input-wrap">
+
+                <span class="input-icon">
+                    ☎
+                </span>
+
+                <input id="mobile" type="tel" maxlength="10" inputmode="numeric" placeholder="Enter 10-digit mobile number" autocomplete="tel" required="" fdprocessedid="6a8rxa">
+
+            </div>
+
+            <div class="error" id="mobileError" style="display: none;">
+                Enter a valid 10-digit mobile number.
+            </div>
+
+        </div>
+
+
+        <!-- EMAIL -->
+
+        <div class="field">
+
+            <label class="main-label" for="email">
+                Email Address
+                <span class="required">*</span>
+            </label>
+
+            <div class="input-wrap">
+
+                <span class="input-icon">
+                    ✉
+                </span>
+
+                <input id="email" type="email" placeholder="Enter your email address" autocomplete="email" required="" fdprocessedid="0bdt15">
+
+            </div>
+
+            <div class="error" id="emailError" style="display: none;">
+                Please enter a valid email address.
+            </div>
+
+        </div>
+
+
+        <!-- STATE -->
+
+        <div class="field">
+
+            <label class="main-label" for="state">
+                State
+                <span class="required">*</span>
+            </label>
+
+            <div class="input-wrap select-wrap">
+
+                <span class="input-icon">
+                    ⌖
+                </span>
+
+                <select id="state" required="" fdprocessedid="yh8f5p">
+
+                    <option value="">
+                        Select your state
+                    </option>
+
+                    <option>Andaman and Nicobar Islands</option>
+                    <option>Andhra Pradesh</option>
+                    <option>Arunachal Pradesh</option>
+                    <option>Assam</option>
+                    <option>Bihar</option>
+                    <option>Chandigarh</option>
+                    <option>Chhattisgarh</option>
+                    <option>Dadra and Nagar Haveli and Daman and Diu</option>
+                    <option>Delhi</option>
+                    <option>Goa</option>
+                    <option>Gujarat</option>
+                    <option>Haryana</option>
+                    <option>Himachal Pradesh</option>
+                    <option>Jammu and Kashmir</option>
+                    <option>Jharkhand</option>
+                    <option>Karnataka</option>
+                    <option>Kerala</option>
+                    <option>Ladakh</option>
+                    <option>Lakshadweep</option>
+                    <option>Madhya Pradesh</option>
+                    <option>Maharashtra</option>
+                    <option>Manipur</option>
+                    <option>Meghalaya</option>
+                    <option>Mizoram</option>
+                    <option>Nagaland</option>
+                    <option>Odisha</option>
+                    <option>Puducherry</option>
+                    <option>Punjab</option>
+                    <option>Rajasthan</option>
+                    <option>Sikkim</option>
+                    <option>Tamil Nadu</option>
+                    <option>Telangana</option>
+                    <option>Tripura</option>
+                    <option>Uttar Pradesh</option>
+                    <option>Uttarakhand</option>
+                    <option>West Bengal</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- CITY -->
+
+        <div class="field">
+
+            <label class="main-label" for="city">
+                City / Town / Village
+                <span class="required">*</span>
+            </label>
+
+            <div class="city-box">
+
+                <div class="input-wrap">
+
+                    <span class="input-icon">
+                        ⌂
+                    </span>
+
+                    <input id="city" type="text" placeholder="Select state first" autocomplete="off" required="" fdprocessedid="3amihe" disabled="">
+
+                </div>
+
+                <div id="citySuggestions" class="city-suggestions"><div class="city-item"><span class="city-name"><strong>Dhar</strong>managar</span><span class="city-badge">Popular</span></div></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- REGISTER BUTTON -->
+
+    <div class="button-area">
+
+        <button type="submit" class="register-btn" id="submitBtn" fdprocessedid="74151e">✈ &nbsp; Register</button>
+
+    </div>
+
+
+    <div class="note">
+        🔒
+        Your information is safe and secure
+    </div>
+
+</form>
+</div>
+
+</div>
+
+<!-- SUCCESS POPUP -->
+
+<div class="overlay" id="successOverlay">
+<div class="confetti" id="confetti"></div>
+
+<div class="popup">
+
+    <div class="success-icon">
+        ✓
+    </div>
+
+    <h2>
+        Registration Completed!
+    </h2>
+
+    <p>
+        Thank you for registering with us.
+        Your information has been submitted successfully.
+    </p>
+
+    <button class="great-btn" id="successButton">
+        ✓ &nbsp; Great!
+    </button>
+
+</div>
+</div>
+
+<script>
+
+/* =====================================================
+   GOOGLE APPS SCRIPT URL
+===================================================== */
+
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbzGtZ3A2kfN8wBzeB2mQNzW5HZxGRGPDoUCGS9hxDZZSkEVntoalDReVjXRsGPkwQvO/exec";
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const form =
+document.getElementById("registrationForm");
+
+const stateInput =
+document.getElementById("state");
+
+const cityInput =
+document.getElementById("city");
+
+const citySuggestions =
+document.getElementById("citySuggestions");
+
+const submitBtn =
+document.getElementById("submitBtn");
+
+const successOverlay =
+document.getElementById("successOverlay");
+
+const successButton =
+document.getElementById("successButton");
+
+const confetti =
+document.getElementById("confetti");
+
+
+/* =====================================================
+   INDIA LOCATION DATABASE
+===================================================== */
+
+let indiaLocations = {};
+
+
+/* =====================================================
+   POPULAR / COMMON LOCATIONS
+===================================================== */
+
+const popularCities = {
+
+    "Andhra Pradesh": [
+        "Visakhapatnam",
+        "Vijayawada",
+        "Guntur",
+        "Tirupati",
+        "Nellore",
+        "Kurnool",
+        "Rajahmundry"
+    ],
+
+    "Arunachal Pradesh": [
+        "Itanagar",
+        "Naharlagun",
+        "Pasighat",
+        "Tawang",
+        "Ziro"
+    ],
+
+    "Assam": [
+        "Guwahati",
+        "Dibrugarh",
+        "Silchar",
+        "Jorhat",
+        "Tezpur",
+        "Nagaon",
+        "Tinsukia",
+        "Sivasagar",
+        "Goalpara",
+        "Golaghat"
+    ],
+
+    "Bihar": [
+        "Patna",
+        "Gaya",
+        "Muzaffarpur",
+        "Bhagalpur",
+        "Darbhanga",
+        "Purnia"
+    ],
+
+    "Chhattisgarh": [
+        "Raipur",
+        "Bhilai",
+        "Bilaspur",
+        "Durg",
+        "Korba"
+    ],
+
+    "Goa": [
+        "Panaji",
+        "Margao",
+        "Vasco da Gama",
+        "Mapusa"
+    ],
+
+    "Gujarat": [
+        "Ahmedabad",
+        "Surat",
+        "Vadodara",
+        "Rajkot",
+        "Gandhinagar",
+        "Bhavnagar",
+        "Jamnagar"
+    ],
+
+    "Haryana": [
+        "Gurugram",
+        "Faridabad",
+        "Panipat",
+        "Ambala",
+        "Hisar",
+        "Rohtak",
+        "Sonipat"
+    ],
+
+    "Himachal Pradesh": [
+        "Shimla",
+        "Manali",
+        "Dharamshala",
+        "Solan",
+        "Mandi"
+    ],
+
+    "Jharkhand": [
+        "Ranchi",
+        "Jamshedpur",
+        "Dhanbad",
+        "Bokaro",
+        "Deoghar"
+    ],
+
+    "Karnataka": [
+        "Bengaluru",
+        "Mysuru",
+        "Mangaluru",
+        "Hubballi",
+        "Belagavi",
+        "Shivamogga"
+    ],
+
+    "Kerala": [
+        "Kochi",
+        "Thiruvananthapuram",
+        "Kozhikode",
+        "Thrissur",
+        "Kollam",
+        "Kannur"
+    ],
+
+    "Madhya Pradesh": [
+        "Bhopal",
+        "Indore",
+        "Jabalpur",
+        "Gwalior",
+        "Ujjain",
+        "Sagar"
+    ],
+
+    "Maharashtra": [
+        "Mumbai",
+        "Pune",
+        "Nagpur",
+        "Nashik",
+        "Thane",
+        "Aurangabad",
+        "Kolhapur",
+        "Solapur"
+    ],
+
+    "Manipur": [
+        "Imphal",
+        "Thoubal",
+        "Bishnupur"
+    ],
+
+    "Meghalaya": [
+        "Shillong",
+        "Tura",
+        "Jowai",
+        "Nongpoh"
+    ],
+
+    "Mizoram": [
+        "Aizawl",
+        "Lunglei",
+        "Champhai"
+    ],
+
+    "Nagaland": [
+        "Kohima",
+        "Dimapur",
+        "Mokokchung"
+    ],
+
+    "Odisha": [
+        "Bhubaneswar",
+        "Cuttack",
+        "Rourkela",
+        "Puri",
+        "Berhampur",
+        "Sambalpur"
+    ],
+
+    "Punjab": [
+        "Amritsar",
+        "Ludhiana",
+        "Jalandhar",
+        "Patiala",
+        "Bathinda",
+        "Mohali"
+    ],
+
+    "Rajasthan": [
+        "Jaipur",
+        "Jodhpur",
+        "Udaipur",
+        "Kota",
+        "Ajmer",
+        "Bikaner"
+    ],
+
+    "Sikkim": [
+        "Gangtok",
+        "Namchi",
+        "Mangan"
+    ],
+
+    "Tamil Nadu": [
+        "Chennai",
+        "Coimbatore",
+        "Madurai",
+        "Salem",
+        "Tiruchirappalli",
+        "Tiruppur"
+    ],
+
+    "Telangana": [
+        "Hyderabad",
+        "Warangal",
+        "Nizamabad",
+        "Karimnagar",
+        "Khammam"
+    ],
+
+    "Tripura": [
+        "Agartala",
+        "Dharmanagar",
+        "Kailashahar",
+        "Udaipur",
+        "Belonia",
+        "Khowai",
+        "Teliamura"
+    ],
+
+    "Uttar Pradesh": [
+        "Lucknow",
+        "Kanpur",
+        "Varanasi",
+        "Agra",
+        "Prayagraj",
+        "Noida",
+        "Ghaziabad",
+        "Meerut",
+        "Gorakhpur"
+    ],
+
+    "Uttarakhand": [
+        "Dehradun",
+        "Haridwar",
+        "Rishikesh",
+        "Haldwani",
+        "Nainital",
+        "Roorkee"
+    ],
+
+    "West Bengal": [
+        "Kolkata",
+        "Siliguri",
+        "Howrah",
+        "Durgapur",
+        "Asansol",
+        "Darjeeling",
+        "Kharagpur"
+    ],
+
+    "Delhi": [
+        "New Delhi",
+        "Delhi",
+        "Najafgarh",
+        "Narela",
+        "Bawana",
+        "Alipur",
+        "Chhawla",
+        "Mehrauli",
+        "Bijwasan",
+        "Kapashera"
+    ],
+
+    "Jammu and Kashmir": [
+        "Srinagar",
+        "Jammu",
+        "Anantnag",
+        "Baramulla",
+        "Kathua",
+        "Udhampur"
+    ],
+
+    "Ladakh": [
+        "Leh",
+        "Kargil"
+    ]
+
+};
+
+
+/* =====================================================
+   LOAD OPTIONAL LARGE INDIA LOCATION FILE
+===================================================== */
+
+async function loadLocations() {
+
+    try {
+
+        const response =
+            await fetch("india-locations.json");
+
+        if (!response.ok) {
+            throw new Error(
+                "india-locations.json not found"
+            );
+        }
+
+        indiaLocations =
+            await response.json();
+
+        console.log(
+            "India location database loaded."
+        );
+
+    } catch (error) {
+
+        console.log(
+            "Using popular city list."
+        );
+
+    }
+
+}
+
+loadLocations();
+
+
+/* =====================================================
+   STATE CHANGE
+===================================================== */
+
+stateInput.addEventListener(
+    "change",
+    function() {
+
+        cityInput.value = "";
+
+        citySuggestions.innerHTML = "";
+
+        citySuggestions.classList.remove("show");
+
+
+        if (stateInput.value === "") {
+
+            cityInput.disabled = true;
+
+            cityInput.placeholder =
+                "Select state first";
+
+        } else {
+
+            cityInput.disabled = false;
+
+            cityInput.placeholder =
+                "Start typing city / town / village";
+
+            cityInput.focus();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   CITY SEARCH
+===================================================== */
+
+cityInput.addEventListener(
+    "input",
+    function() {
+
+        const state =
+            stateInput.value;
+
+        const search =
+            cityInput.value
+                .trim()
+                .toLowerCase();
+
+
+        citySuggestions.innerHTML = "";
+
+
+        if (
+            state === "" ||
+            search === ""
+        ) {
+
+            citySuggestions
+                .classList
+                .remove("show");
+
+            return;
+        }
+
+
+        /*
+           Combine popular cities
+           + larger JSON database.
+        */
+
+        const popular =
+            popularCities[state] || [];
+
+        const database =
+            indiaLocations[state] || [];
+
+
+        const combined =
+            [
+                ...popular,
+                ...database
+            ];
+
+
+        const unique =
+            [
+                ...new Set(combined)
+            ];
+
+
+        /*
+           Beginning matches first.
+        */
+
+        const beginningMatches =
+            unique.filter(
+                function(city) {
+
+                    return city
+                        .toLowerCase()
+                        .startsWith(search);
+
+                }
+            );
+
+
+        /*
+           Then matches anywhere.
+        */
+
+        const otherMatches =
+            unique.filter(
+                function(city) {
+
+                    const lower =
+                        city.toLowerCase();
+
+                    return (
+                        !lower.startsWith(search)
+                        &&
+                        lower.includes(search)
+                    );
+
+                }
+            );
+
+
+        const matches =
+            [
+                ...beginningMatches,
+                ...otherMatches
+            ].slice(0,12);
+
+
+        if (matches.length === 0) {
+
+            citySuggestions
+                .classList
+                .remove("show");
+
+            return;
+        }
+
+
+        matches.forEach(
+            function(city) {
+
+                const item =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                item.className =
+                    "city-item";
+
+
+                const name =
+                    document.createElement(
+                        "span"
+                    );
+
+                name.className =
+                    "city-name";
+
+
+                const lower =
+                    city.toLowerCase();
+
+                const index =
+                    lower.indexOf(search);
+
+
+                if (index !== -1) {
+
+                    const before =
+                        city.substring(
+                            0,
+                            index
+                        );
+
+                    const match =
+                        city.substring(
+                            index,
+                            index + search.length
+                        );
+
+                    const after =
+                        city.substring(
+                            index + search.length
+                        );
+
+
+                    name.innerHTML =
+                        before +
+                        "<strong>" +
+                        match +
+                        "</strong>" +
+                        after;
+
+                } else {
+
+                    name.textContent =
+                        city;
+
+                }
+
+
+                const badge =
+                    document.createElement(
+                        "span"
+                    );
+
+                badge.className =
+                    "city-badge";
+
+                badge.textContent =
+                    popular.includes(city)
+                        ? "Popular"
+                        : "Location";
+
+
+                item.appendChild(name);
+
+                item.appendChild(badge);
+
+
+                item.addEventListener(
+                    "click",
+                    function() {
+
+                        cityInput.value =
+                            city;
+
+                        citySuggestions
+                            .classList
+                            .remove("show");
+
+                    }
+                );
+
+
+                citySuggestions
+                    .appendChild(item);
+
+            }
+        );
+
+
+        citySuggestions
+            .classList
+            .add("show");
+
+    }
+);
+
+
+/* =====================================================
+   CLOSE SUGGESTIONS
+===================================================== */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            !event.target.closest(
+                ".city-box"
+            )
+        ) {
+
+            citySuggestions
+                .classList
+                .remove("show");
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   MOBILE NUMBER
+===================================================== */
+
+document
+.getElementById("mobile")
+.addEventListener(
+    "input",
+    function() {
+
+        this.value =
+            this.value.replace(
+                /\D/g,
+                ""
+            );
+
+    }
+);
+
+
+/* =====================================================
+   ERROR FUNCTIONS
+===================================================== */
+
+function showError(id) {
+
+    document.getElementById(id)
+        .style.display = "block";
+
+}
+
+
+function hideError(id) {
+
+    document.getElementById(id)
+        .style.display = "none";
+
+}
+
+
+/* =====================================================
+   FORM SUBMISSION
+===================================================== */
+
+form.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        const name =
+            document.getElementById("name")
+                .value
+                .trim();
+
+
+        const mobile =
+            document.getElementById("mobile")
+                .value
+                .trim();
+
+
+        const email =
+            document.getElementById("email")
+                .value
+                .trim();
+
+
+        const age =
+            document.getElementById("age")
+                .value;
+
+
+        const state =
+            stateInput.value;
+
+
+        const city =
+            cityInput
+                .value
+                .trim();
+
+
+        const gender =
+            document.querySelector(
+                'input[name="gender"]:checked'
+            );
+
+
+        let valid = true;
+
+
+        /* NAME */
+
+        if (name === "") {
+
+            showError("nameError");
+
+            valid = false;
+
+        } else {
+
+            hideError("nameError");
+
+        }
+
+
+        /* GENDER */
+
+        if (!gender) {
+
+            showError("genderError");
+
+            valid = false;
+
+        } else {
+
+            hideError("genderError");
+
+        }
+
+
+        /* AGE */
+
+        if (
+            age === "" ||
+            Number(age) < 1 ||
+            Number(age) > 120
+        ) {
+
+            showError("ageError");
+
+            valid = false;
+
+        } else {
+
+            hideError("ageError");
+
+        }
+
+
+        /* MOBILE */
+
+        const mobilePattern =
+            /^[6-9][0-9]{9}$/;
+
+
+        if (
+            !mobilePattern.test(
+                mobile
+            )
+        ) {
+
+            showError("mobileError");
+
+            valid = false;
+
+        } else {
+
+            hideError("mobileError");
+
+        }
+
+
+        /* EMAIL */
+
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+        if (
+            !emailPattern.test(
+                email
+            )
+        ) {
+
+            showError("emailError");
+
+            valid = false;
+
+        } else {
+
+            hideError("emailError");
+
+        }
+
+
+        /* STATE */
+
+        if (state === "") {
+
+            alert(
+                "Please select your state."
+            );
+
+            valid = false;
+
+        }
+
+
+        /* CITY */
+
+        if (city === "") {
+
+            alert(
+                "Please enter your city, town or village."
+            );
+
+            valid = false;
+
+        }
+
+
+        if (!valid) {
+            return;
+        }
+
+
+        /* DATA */
+
+        const formData = {
+
+            name: name,
+
+            gender: gender.value,
+
+            mobile: mobile,
+
+            email: email,
+
+            age: age,
+
+            state: state,
+
+            city: city
+
+        };
+
+
+        /* BUTTON */
+
+        submitBtn.disabled = true;
+
+        submitBtn.innerHTML =
+            "Submitting...";
+
+
+        try {
+
+            /*
+               Send data to Google Apps Script.
+            */
+
+            await fetch(
+                SCRIPT_URL,
+                {
+                    method: "POST",
+
+                    mode: "no-cors",
+
+                    headers: {
+                        "Content-Type":
+                            "text/plain;charset=utf-8"
+                    },
+
+                    body:
+                        JSON.stringify(
+                            formData
+                        )
+                }
+            );
+
+
+            /*
+               Reset form.
+            */
+
+            form.reset();
+
+
+            cityInput.disabled = true;
+
+            cityInput.placeholder =
+                "Select state first";
+
+
+            submitBtn.disabled = false;
+
+            submitBtn.innerHTML =
+                "✈ &nbsp; Register";
+
+
+            /*
+               Show success animation.
+            */
+
+            createConfetti();
+
+            successOverlay
+                .classList
+                .add("show");
+
+        }
+
+        catch (error) {
+
+            console.error(error);
+
+            submitBtn.disabled = false;
+
+            submitBtn.innerHTML =
+                "✈ &nbsp; Register";
+
+
+            alert(
+                "Unable to submit the form. Please check your internet connection and try again."
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   SUCCESS POPUP
+===================================================== */
+
+successButton.addEventListener(
+    "click",
+    function() {
+
+        successOverlay
+            .classList
+            .remove("show");
+
+
+        setTimeout(
+            function() {
+
+                confetti.innerHTML = "";
+
+            },
+            400
+        );
+
+    }
+);
+
+
+/* =====================================================
+   ESC KEY
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape" &&
+            successOverlay
+                .classList
+                .contains("show")
+        ) {
+
+            successOverlay
+                .classList
+                .remove("show");
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+function createConfetti() {
+
+    confetti.innerHTML = "";
+
+
+    const colors = [
+        "#4b8dff",
+        "#7255ef",
+        "#35c98b",
+        "#f7b955",
+        "#ef6b88",
+        "#66c7f2"
+    ];
+
+
+    for (
+        let i = 0;
+        i < 50;
+        i++
+    ) {
+
+        const piece =
+            document.createElement(
+                "div"
+            );
+
+
+        piece.className =
+            "confetti-piece";
+
+
+        piece.style.left =
+            Math.random() * 100 +
+            "%";
+
+
+        piece.style.top =
+            Math.random() * 15 +
+            "%";
+
+
+        piece.style.background =
+            colors[
+                Math.floor(
+                    Math.random() *
+                    colors.length
+                )
+            ];
+
+
+        piece.style.animationDelay =
+            Math.random() * .45 +
+            "s";
+
+
+        confetti.appendChild(
+            piece
+        );
+
+    }
+
+}
+
+</script>
+
+
+
+<span id="PING_CONTENT_PUSH_NOTIFICATION" style="display: none;"></span><span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span></body></html>
